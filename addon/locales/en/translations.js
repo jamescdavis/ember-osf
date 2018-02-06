@@ -222,6 +222,7 @@ export default {
                 enterProjectTitle: 'Enter project title',
                 enterComponentTitle: 'Enter component title',
                 newProjectMessage: 'You have selected to create a new public project for your file. Users will still have access to your file unless the project becomes private.',
+                newComponentMessage: 'You have selected to create a new public component for your file. Users will still have access to your file unless the component becomes private.',
                 chooseProject: 'Choose project',
                 projectSelectMessage: 'The list of projects appearing are projects and components for which you have write access. Registrations are not included here.',
                 noProjectsExistError: 'You have no available projects. Go back to create a new project.',

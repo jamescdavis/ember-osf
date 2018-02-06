@@ -75,13 +75,18 @@
             </div>
         </div>
         {{#if willCreateComponent}}
-            {{input
-                type='text'
-                placeholder=(t "eosf.components.moveToProject.enterComponentTitle")
-                class="form-control"
-                name='nodeTitle'
-                id='projectTitle'
-                key-up='checkNodeTitleKeypress'}}
+            <form>
+                <div class="form-group">
+                    {{input
+                        type='text'
+                        placeholder=(t "eosf.components.moveToProject.enterComponentTitle")
+                        class="form-control"
+                        name='nodeTitle'
+                        id='projectTitle'
+                        key-up='checkNodeTitleKeypress'}}
+                </div>
+            </form>
+            {{t "eosf.components.moveToProject.newComponentMessage"}}
         {{/if}}
         {{#if (or willCreateComponent willMoveToNode)}}
             <p class="m-t-lg">
@@ -91,15 +96,15 @@
                     {{t "eosf.components.moveToProject.convertOrCopyMessage.project"}}
                 {{/if}}
             </p>
-            {{#unless isProjectPublic}}
-                <p class="text-danger m-t-sm">
-                    {{#if isChildNode}}
-                        {{t "eosf.components.moveToProject.noLongerPublicWarning.component"}}
-                    {{else}}
-                        {{t "eosf.components.moveToProject.noLongerPublicWarning.project"}}
-                    {{/if}}
-                </p>
-            {{/unless}}
+        {{/if}}
+        {{#if (and willMoveToNode (not isProjectPublic))}}
+            <p class="text-danger m-t-sm">
+                {{#if isChildNode}}
+                    {{t "eosf.components.moveToProject.noLongerPublicWarning.component"}}
+                {{else}}
+                    {{t "eosf.components.moveToProject.noLongerPublicWarning.project"}}
+                {{/if}}
+            </p>
         {{/if}}
     {{/if}}
 {{/if}}
